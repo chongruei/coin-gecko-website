@@ -3,7 +3,7 @@ import { Exchanges } from "@components/exchanges";
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center">
       <Exchanges />
     </div>
   );
