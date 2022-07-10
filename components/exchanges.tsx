@@ -28,15 +28,17 @@ export const Exchanges: FC = () => {
   return (
     <div className="w-full md:w-[600px] h-[600px] flex flex-col items-center justify-start">
       <div className="w-full h-[500px] grid grid-container gap-3 justify-items-center mb-5">
-        <div>Rank</div>
-        <div>Name</div>
-        <div>Country</div>
+        <div data-testid="exchange-rank">Rank</div>
+        <div data-testid="exchange-name">Name</div>
+        <div data-testid="exchange-country">Country</div>
         {isLoading && <div className="col-span-4">loading...</div>}
         {data?.map((exchange: ExchangeEntity) => {
           const { id, name, country, url, image, trust_score_rank } = exchange;
           return (
             <Fragment key={id}>
-              <div>{trust_score_rank}</div>
+              <div data-testid={`rank-${trust_score_rank}`}>
+                {trust_score_rank}
+              </div>
               <div className="flex self-center justify-self-start">
                 <div className="h-min-[24px] w-min-[24px]">
                   <Image

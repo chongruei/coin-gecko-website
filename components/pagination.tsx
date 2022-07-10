@@ -17,6 +17,7 @@ export const Pagination: FC<IProps> = ({
     <div className="inline-flex">
       {showPrev && (
         <button
+          data-testid="prev-page"
           className="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l"
           onClick={onPrevPage}
         >
@@ -25,6 +26,7 @@ export const Pagination: FC<IProps> = ({
       )}
       {showNext && (
         <button
+          data-testid="next-page"
           className="bg-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
           onClick={onNextPage}
         >
