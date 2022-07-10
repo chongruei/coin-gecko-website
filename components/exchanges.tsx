@@ -1,8 +1,8 @@
 import { FC, Fragment, useState } from "react";
 import { useQuery } from "react-query";
 import Image from "next/image";
-import { fetchExchanges } from "services/exchanges/exchanges";
-import { ExchangeEntity } from "interface/exchange";
+import { fetchExchanges } from "@services/exchanges/exchanges";
+import { ExchangeEntity } from "@interface/exchange";
 import { Pagination } from "components/pagination";
 import { useThrottleFn } from "@hooks/useThrottleFn";
 
