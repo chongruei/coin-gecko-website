@@ -14,7 +14,7 @@ describe("Exchange Detail Page", () => {
   });
 
   it("should back to index page correctly", () => {
-    // to binance detail page
+    // to index page
     cy.getByTestId("backto-index").click();
     cy.url().should("eq", "http://localhost:3000/");
   });
