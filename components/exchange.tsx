@@ -46,7 +46,7 @@ export const Exchange: FC<IProps> = ({ id }) => {
     <div className="w-full max-w-[600px] h-[90vh] relative flex flex-col items-center justify-start">
       <button
         data-testid="backto-index"
-        className="absolute top-1 left-8 rounded-lg bg-slate-200 text-slate-900 p-2 text-center cursor-pointer"
+        className="absolute top-1 left-4 rounded-lg bg-slate-200 text-slate-900 px-2 py-1 text-center cursor-pointer"
         onClick={handleRedirectToExchanges}
       >
         Back
@@ -59,7 +59,7 @@ export const Exchange: FC<IProps> = ({ id }) => {
       </div>
 
       <div className="grid grid-cols-2 gap-3">
-        <div className="w-full col-span-2 flex justify-start">
+        <div className="w-full col-span-2 flex justify-center">
           {facebook_url && (
             <MediaLink
               name="facebook"
@@ -89,8 +89,8 @@ export const Exchange: FC<IProps> = ({ id }) => {
         <p>{trust_score_rank}</p>
         <p>Year Established:</p>
         <p data-testid="exchange-year-established">{year_established}</p>
-        <p>Description:</p>
-        <p>{description || "empty"}</p>
+        <p className="col-span-2">Description:</p>
+        <p className="col-span-2">{description || "empty"}</p>
       </div>
     </div>
   );
