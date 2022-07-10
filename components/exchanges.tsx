@@ -28,7 +28,7 @@ export const Exchanges: FC = () => {
   return (
     <div className="w-full md:w-[600px] h-[600px] flex flex-col items-center justify-start">
       <div className="w-full h-[500px] grid grid-container gap-3 justify-items-center mb-5">
-        <div>Rank{page}</div>
+        <div>Rank</div>
         <div>Name</div>
         <div>Country</div>
         {isLoading && <div className="col-span-4">loading...</div>}
