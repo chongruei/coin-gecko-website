@@ -52,7 +52,12 @@ export const Exchanges: FC = () => {
                     />
                   </div>
                   <Link href={`/exchange/${id}`} passHref>
-                    <a className="ml-2 hover:text-blue-500 truncate">{name}</a>
+                    <a
+                      data-testid={`link-exchange-${id}`}
+                      className="ml-2 hover:text-blue-500 truncate"
+                    >
+                      {name}
+                    </a>
                   </Link>
                 </div>
                 <a
