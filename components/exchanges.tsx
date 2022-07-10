@@ -1,8 +1,9 @@
 import { FC, Fragment, useState } from "react";
 import { useQuery } from "react-query";
 import Image from "next/image";
-import { fetchExchanges } from "services/exchanges/exchanges";
-import { ExchangeEntity } from "interface/exchange";
+import Link from "next/link";
+import { fetchExchanges } from "@services/exchanges/exchanges";
+import { ExchangeEntity } from "@interface/exchange";
 import { Pagination } from "components/pagination";
 import { useThrottleFn } from "@hooks/useThrottleFn";
 
@@ -22,12 +23,12 @@ export const Exchanges: FC = () => {
   }, 400);
 
   if (isError) {
-    return <div>Oops! occurs some error</div>;
+    return <div>Oops! occurs some error!</div>;
   }
 
   return (
-    <div className="w-full md:w-[600px] h-[600px] flex flex-col items-center justify-start">
-      <div className="w-full h-[500px] grid grid-container gap-3 justify-items-center mb-5">
+    <div className="w-full md:w-[1024px] flex flex-col items-center justify-start">
+      <div className="w-full min-h-[700px] grid grid-container gap-3 justify-items-center mb-5">
         <div data-testid="exchange-rank">Rank</div>
         <div data-testid="exchange-name">Name</div>
         <div data-testid="exchange-country">Country</div>
@@ -39,22 +40,32 @@ export const Exchanges: FC = () => {
               <div data-testid={`rank-${trust_score_rank}`}>
                 {trust_score_rank}
               </div>
-              <div className="flex self-center justify-self-start">
-                <div className="h-min-[24px] w-min-[24px]">
-                  <Image
-                    alt={name}
-                    src={image}
-                    height={24}
-                    width={24}
-                    layout="fixed"
-                  />
+              <div className="flex flex-col self-center justify-self-start max-w-full">
+                <div className="flex w-full">
+                  <div className="h-min-[24px] w-min-[24px]">
+                    <Image
+                      alt={name}
+                      src={image}
+                      height={24}
+                      width={24}
+                      layout="fixed"
+                    />
+                  </div>
+                  <Link href={`/exchange/${id}`} passHref>
+                    <a
+                      data-testid={`link-exchange-${id}`}
+                      className="ml-2 hover:text-blue-500 truncate"
+                    >
+                      {name}
+                    </a>
+                  </Link>
                 </div>
                 <a
-                  className="ml-2 hover:text-blue-500"
+                  className="truncate hover:text-blue-500"
                   href={url}
                   target="blank"
                 >
-                  {name}
+                  {url}
                 </a>
               </div>
               <div>{country || "empty"}</div>

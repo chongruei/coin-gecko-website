@@ -35,6 +35,12 @@ describe("Index Page", () => {
     // rank 13
     cy.getByTestId("rank-3").contains("3");
   });
+
+  it("should redirect correctly", () => {
+    // to binance detail page
+    cy.getByTestId("link-exchange-binance").click();
+    cy.url().should("include", "/exchange/binance");
+  });
 });
 
 export {};
